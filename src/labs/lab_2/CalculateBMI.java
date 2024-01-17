@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class CalculateBMI {
     private static final DecimalFormat df = new DecimalFormat(".0");
-    private static final float MIN_NORMAL_BMI = 18.5f;
-    private static final float MAX_NORMAL_BMI = 24.9f;
+    private static final float MIN_BMI = 18.5f;
+    private static final float MAX_BMI = 24.9f;
     private static final float MAX_OVER_BMI = 29.9f;
 
     private static final String UNDER = "Underweight";
@@ -27,7 +27,7 @@ public class CalculateBMI {
         String resultBMI = resultBMI(BMI);
         System.out.printf("Your BMI (%s) is %s\n", df.format(BMI), resultBMI);
 
-        System.out.println("Suggestion: " + suggestWeight(userHeight, userWeight, resultBMI));
+        System.out.println("Suggestion: " + suggestWeight(resultBMI, userWeight, userHeight));
     }
 
     private static float calculateBMI(float weight, float height) {
@@ -36,9 +36,9 @@ public class CalculateBMI {
     }
 
     private static String resultBMI(float BMI) {
-        if (BMI < MIN_NORMAL_BMI) {
+        if (BMI < MIN_BMI) {
             return UNDER;
-        } else if (BMI < MAX_NORMAL_BMI) {
+        } else if (BMI < MAX_BMI) {
             return NORMAL;
         } else if (BMI < MAX_OVER_BMI) {
             return OVER;
@@ -47,84 +47,26 @@ public class CalculateBMI {
         }
     }
 
-    private static String suggestWeight(float userHeight, float userWeight, String resultBMI) {
-        float minNormalWeight = MIN_NORMAL_BMI * userHeight * userHeight;
-        float maxNormalWeight = MAX_NORMAL_BMI * userHeight * userHeight;
-        float suggestWeight;
+    private static String suggestWeight(String resultBMI, float userWeight, float userHeight) {
         String suggestMessage = null;
         if (resultBMI == UNDER) {
-            suggestWeight = minNormalWeight - userWeight;
-            suggestMessage = String.format("Consider increasing your weight (%s kg) to reach the standard BMI", df.format(suggestWeight));
+            suggestMessage = String.format("Consider increasing your weight (%s kg) to reach the standard BMI", increaseWeight(userWeight, userHeight));
         } else if (resultBMI == OVER || resultBMI == OBESITY) {
-            suggestWeight = userWeight - maxNormalWeight;
-            suggestMessage = String.format("Consider decreasing your weight (%s kg) to reach the standard BMI", df.format(suggestWeight));
+           suggestMessage = String.format("Consider decreasing your weight (%s kg) to reach the standard BMI", decreaseWeight(userWeight, userHeight));
         } else if (resultBMI == NORMAL) {
             suggestMessage = "Good job! Keep going your weight in standard BMI.";
         }
         return suggestMessage;
     }
 
-    // This is a draft for practicing problem-solving.
-     /*
-        // Problem 1:
-        A. Understand problem: ------------------------------------------------------------------
-        Get input height
-        Get input weight
+    private static String increaseWeight(float userWeight, float userHeight) {
+        float minWeight = MIN_BMI * userHeight * userHeight;
+        String weight =  df.format(minWeight - userWeight);
+        return weight;
 
-        calculate BMI = weight /(height ** height);
-
-        Underweight = <18.5
-        Normal weight = 18.5 – 24.9
-        Overweight = 25–29.9
-        Obesity = BMI of 30 or greater
-
-        // B: Design 2: ------------------------------------------------------------------
-        1. init  a scanner to get input values:
-            height
-            weight
-        2. close scanner when finish
-
-        3. calculate BMI = weight /(height ** height);
-
-        4. create a function:
-            Underweight = <18.5
-            Normal weight = 18.5 – 24.9
-            Overweight = 25–29.9
-            Obesity = BMI of 30 or greater
-
-        // Init constants:
-            MIN_NORMAL_BMI = 18.5
-            MAX_NORMAL_BMI = 24.9
-            MAX_OVER_BMI = 29.9
-
-         */
-    // C: Write code ------------------------------------------------------------------
-
-     /*
-        // Problem 2: Suggest user to increase/decrease weight
-        A: Understand:
-            Suggest user ( print message):
-               increase/decrease weight
-        B: break small problems:
-            Underweight => increase weight = ? => to min_normal_weight = ?
-            Overweight => decrease weight = ? => to max_normal_weight =?
-            Obesity = BMI of 30 or greater => decrease weight = ? => to max_normal_weight
-            Normal weight =>  good job & keep going.
-
-            weight = ?
-                ( BMI = weight/ (height * height) )
-                => weight = BMI * height * height
-
-           min_normal_weight =  MIN_NORMAL_BMI * height * height
-           max_normal_weight =  MAX_NORMAL_BMI * height * height
-
-           if( Underweight)
-                increase  suggestWeight = minNormalWeight - yourWeight
-           Else if( Overweight && Obesity)
-                decrease suggestWeight = maxNormalWeight - yourWeight
-           Else
-                Good Job! Keep going your weight!
-        */
-
-    // C: Write code
+    private static String decreaseWeight(float userWeight, float userHeight) {
+        float maxWeight = MAX_BMI * userHeight * userHeight;
+        String weight = df.format(userWeight - maxWeight);
+        return weight;
+    }
 }
