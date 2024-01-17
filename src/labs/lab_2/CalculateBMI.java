@@ -64,7 +64,7 @@ public class CalculateBMI {
         return suggestMessage;
     }
 
-    // This is a draft for practicing resole problem.
+    // This is a draft for practicing problem-solving.
      /*
         // Problem 1:
         A. Understand problem: ------------------------------------------------------------------
