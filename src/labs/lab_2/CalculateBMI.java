@@ -23,11 +23,11 @@ public class CalculateBMI {
         float userWeight = input.nextFloat();
         input.close();
 
-        float BMI = calculateBMI(userWeight, userHeight);
-        String resultBMI = resultBMI(BMI);
-        System.out.printf("Your BMI (%s) is %s\n", df.format(BMI), resultBMI);
+        float userBMI = calculateBMI(userWeight, userHeight);
+        String resultBMI = resultBMI(userBMI);
+        System.out.printf("Your userBMI (%s) is %s\n", df.format(userBMI), resultBMI);
 
-        System.out.println("Suggestion: " + suggestWeight(resultBMI, userWeight, userHeight));
+        System.out.println("Suggestion: " + suggestWeight(resultBMI, userBMI, userHeight));
     }
 
     private static float calculateBMI(float weight, float height) {
@@ -46,31 +46,23 @@ public class CalculateBMI {
         }
     }
 
-    private static String suggestWeight(String resultBMI, float userWeight, float userHeight) {
+    private static String suggestWeight(String resultBMI, float userBMI, float userHeight) {
         String suggestMessage = null;
+        float suggestWeight;
+
         switch (resultBMI) {
             case UNDER:
-                suggestMessage = String.format("Consider increasing your weight (%s kg) to reach the standard BMI", increaseWeight(userWeight, userHeight));
+                suggestWeight = (MIN_BMI - userBMI) * userHeight * userHeight;
+                suggestMessage = String.format("Consider increasing your weight (%s kg) to reach the standard BMI", df.format(suggestWeight));
                 break;
             case OVER:
             case OBESITY:
-                suggestMessage = String.format("Consider decreasing your weight (%s kg) to reach the standard BMI", decreaseWeight(userWeight, userHeight));
+                suggestWeight = (userBMI - MAX_BMI) * userHeight * userHeight;
+                suggestMessage = String.format("Consider decreasing your weight (%s kg) to reach the standard BMI", df.format(suggestWeight));
                 break;
             default:
                 suggestMessage = "Good job! Keep going your weight in standard BMI.";
         }
         return suggestMessage;
-    }
-
-    private static String increaseWeight(float userWeight, float userHeight) {
-        float minWeight = MIN_BMI * userHeight * userHeight;
-        String weight = df.format(minWeight - userWeight);
-        return weight;
-    }
-
-    private static String decreaseWeight(float userWeight, float userHeight) {
-        float maxWeight = MAX_BMI * userHeight * userHeight;
-        String weight = df.format(userWeight - maxWeight);
-        return weight;
     }
 }
