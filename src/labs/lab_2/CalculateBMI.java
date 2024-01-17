@@ -31,8 +31,7 @@ public class CalculateBMI {
     }
 
     private static float calculateBMI(float weight, float height) {
-        float BMI = weight / (height * height);
-        return BMI;
+        return weight / (height * height);
     }
 
     private static String resultBMI(float BMI) {
@@ -49,20 +48,25 @@ public class CalculateBMI {
 
     private static String suggestWeight(String resultBMI, float userWeight, float userHeight) {
         String suggestMessage = null;
-        if (resultBMI == UNDER) {
-            suggestMessage = String.format("Consider increasing your weight (%s kg) to reach the standard BMI", increaseWeight(userWeight, userHeight));
-        } else if (resultBMI == OVER || resultBMI == OBESITY) {
-           suggestMessage = String.format("Consider decreasing your weight (%s kg) to reach the standard BMI", decreaseWeight(userWeight, userHeight));
-        } else if (resultBMI == NORMAL) {
-            suggestMessage = "Good job! Keep going your weight in standard BMI.";
+        switch (resultBMI) {
+            case UNDER:
+                suggestMessage = String.format("Consider increasing your weight (%s kg) to reach the standard BMI", increaseWeight(userWeight, userHeight));
+                break;
+            case OVER:
+            case OBESITY:
+                suggestMessage = String.format("Consider decreasing your weight (%s kg) to reach the standard BMI", decreaseWeight(userWeight, userHeight));
+                break;
+            default:
+                suggestMessage = "Good job! Keep going your weight in standard BMI.";
         }
         return suggestMessage;
     }
 
     private static String increaseWeight(float userWeight, float userHeight) {
         float minWeight = MIN_BMI * userHeight * userHeight;
-        String weight =  df.format(minWeight - userWeight);
+        String weight = df.format(minWeight - userWeight);
         return weight;
+    }
 
     private static String decreaseWeight(float userWeight, float userHeight) {
         float maxWeight = MAX_BMI * userHeight * userHeight;
