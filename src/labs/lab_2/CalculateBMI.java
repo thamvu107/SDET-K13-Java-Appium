@@ -1,9 +1,9 @@
-package src.labs;
+package src.labs.lab_2;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class lab_2 {
+public class CalculateBMI {
     private static final DecimalFormat df = new DecimalFormat(".0");
     private static final float MIN_NORMAL_WEIGHT = 18.5f;
     private static final float MAX_NORMAL_WIGHT = 24.9f;
