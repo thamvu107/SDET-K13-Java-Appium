@@ -63,7 +63,6 @@ public class CalculateBMI {
         float minWeight = MIN_BMI * userHeight * userHeight;
         String weight =  df.format(minWeight - userWeight);
         return weight;
-    }
 
     private static String decreaseWeight(float userWeight, float userHeight) {
         float maxWeight = MAX_BMI * userHeight * userHeight;
