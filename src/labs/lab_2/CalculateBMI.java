@@ -25,7 +25,7 @@ public class CalculateBMI {
 
         float userBMI = calculateBMI(userWeight, userHeight);
         String resultBMI = resultBMI(userBMI);
-        System.out.printf("Your userBMI (%s) is %s\n", df.format(userBMI), resultBMI);
+        System.out.printf("Your BMI (%s) is %s\n", df.format(userBMI), resultBMI);
 
         System.out.println("Suggestion: " + suggestWeight(resultBMI, userBMI, userHeight));
     }
