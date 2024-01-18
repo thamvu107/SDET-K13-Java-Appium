@@ -9,20 +9,30 @@ public class CountOddEvenNumberInArray {
         int arrayLength = 2;
         int maxValue = 100;
         int[] numberArray = generateRandomNumberArray(arrayLength, maxValue);
+        System.out.println(Arrays.toString(numberArray));
 
+        // 2. Count even, odd number
         int evenCount = 0;
         for (int number : numberArray) {
             if (number % 2 == 0)
                 evenCount++;
         }
 
-        System.out.println(Arrays.toString(numberArray));
-
         int oddCount = numberArray.length - evenCount;
 
+        // 3. Print result:
         String result = getResult(evenCount, oddCount);
-
         System.out.println(result);
+    }
+
+    private static int[] generateRandomNumberArray(int arrayLength, int maxValue) {
+        int[] randomNumberArray = new int[arrayLength];
+        Random random = new Random();
+
+        for (int index = 0; index < arrayLength; index++) {
+            randomNumberArray[index] = random.nextInt(maxValue);
+        }
+        return randomNumberArray;
     }
 
     private static String getResult(int evenCount, int oddCount) {
@@ -38,16 +48,6 @@ public class CountOddEvenNumberInArray {
         String result = String.format("%s\n%s", evenNumberResult, oddNumberResult);
 
         return result;
-    }
-
-    private static int[] generateRandomNumberArray(int arrayLength, int maxValue) {
-        int[] randomNumberArray = new int[arrayLength];
-        Random random = new Random();
-
-        for (int index = 0; index < arrayLength; index++) {
-            randomNumberArray[index] = random.nextInt(maxValue);
-        }
-        return randomNumberArray;
     }
 
     /*
