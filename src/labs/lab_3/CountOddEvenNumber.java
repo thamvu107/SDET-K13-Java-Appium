@@ -1,9 +1,8 @@
 package src.labs.lab_3;
 
 import java.util.Arrays;
-import java.util.Map;
 
-public class CountOddEvenNumberInArray {
+public class CountOddEvenNumber {
     public static void main(String[] args) {
 
         // 1. Generate random integer number array
