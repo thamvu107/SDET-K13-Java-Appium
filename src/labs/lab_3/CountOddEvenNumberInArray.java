@@ -1,41 +1,45 @@
 package src.labs.lab_3;
 
 import java.util.Arrays;
-import java.util.Random;
+import java.util.Map;
 
 public class CountOddEvenNumberInArray {
     public static void main(String[] args) {
-        // 1. Generate a random integer number array
-        int arrayLength = 2;
-        int maxValue = 100;
-        int[] numberArray = generateRandomNumberArray(arrayLength, maxValue);
-        System.out.println(Arrays.toString(numberArray));
 
-        // 2. Count even, odd number
-        int evenCount = 0;
-        for (int number : numberArray) {
-            if (number % 2 == 0)
-                evenCount++;
+        // 1. Generate random integer number array
+        int[] intArray = GenerateArray.intNumberArray(10, 100);
+        System.out.println(Arrays.toString(intArray));
+        countEvenOddNumber(intArray);
+        System.out.println();
+
+        int[] intArray1 = {1};
+        System.out.println(Arrays.toString(intArray1));
+        countEvenOddNumber(intArray1);
+        System.out.println();
+    }
+
+    private static void countEvenOddNumber(int[] numberArray) {
+        if(numberArray.length == 0){
+            System.out.println("This is an empty array");
+            return;
         }
 
-        int oddCount = numberArray.length - evenCount;
+        // 2. Count even, odd number
+        int evenCount = 0, oddCount = 0;
+        for (int number : numberArray) {
+            if (number % 2 == 0) {
+                evenCount++;
+            } else {
+                oddCount++;
+            }
+        }
 
         // 3. Print result:
-        String result = getResult(evenCount, oddCount);
+        String result = displayCountingMsg(evenCount, oddCount);
         System.out.println(result);
     }
 
-    private static int[] generateRandomNumberArray(int arrayLength, int maxValue) {
-        int[] randomNumberArray = new int[arrayLength];
-        Random random = new Random();
-
-        for (int index = 0; index < arrayLength; index++) {
-            randomNumberArray[index] = random.nextInt(maxValue);
-        }
-        return randomNumberArray;
-    }
-
-    private static String getResult(int evenCount, int oddCount) {
+    private static String displayCountingMsg(int evenCount, int oddCount) {
         String singularText = "number";
         String pluralText = "numbers";
 
