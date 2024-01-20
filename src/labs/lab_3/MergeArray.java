@@ -19,7 +19,14 @@ public class MergeArray {
             sort 2 arrays
         2. merge 2 arrays
             init merge array with length = array1 length + array2 length
-            for loop array 1
+            while array 1 Or array 2 still has value => i < length Or j < length
+                if ( i < length1 && ( arr1[i] <= array2[j]) || i < length1 && j >= length2)
+                    arr3[k] = arr1[i];
+                    then increase index of arr1
+                else
+                 arr3[k] = arr2[j];
+                 then increase index of arr2
+                and increase index of merge array (k++);
         3. sort the merged array
         */
 
@@ -48,7 +55,7 @@ public class MergeArray {
         // arr1: {9, 11}
         // arr2: {1, 13, 16, 45}
         while (i < length1 || j < length2) {
-            if (i < length1 && (j >= length2 || arr1[i] <= arr2[j])) {
+            if ((i < length1 && (arr1[i] <= arr2[j])) || (i < length1 && j >= length2)) {
                 mergedArray[k] = arr1[i];
                 i++;
             } else {
