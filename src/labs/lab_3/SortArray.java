@@ -4,30 +4,9 @@ import java.util.Arrays;
 
 public class SortArray {
     public static void main(String[] args) {
-        int[] numbers = GenerateArray.intNumberArray(5, 100);
+        int[] numbers = Helper.generateIntNumberArray(5, 100);
         System.out.printf("Before sorting array: %s\n", Arrays.toString(numbers));
-        sort(numbers);
+        Helper.sortAscending(numbers);
         System.out.printf("After sorting array: %s", Arrays.toString(numbers));
-    }
-
-    private static void sort(int[] numbers) {
-        boolean isSorted;
-        for (int i = 0; i < numbers.length; i++) {
-            isSorted = true;
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-                if (numbers[j] > numbers[j + 1]) {
-                    swap(numbers, j, j + 1);
-                    isSorted = false;
-                }
-            }
-            if (isSorted)
-                return;
-        }
-    }
-
-    private static void swap(int[] array, int index1, int index2) {
-        int temp = array[index1];
-        array[index1] = array[index2];
-        array[index2] = temp;
     }
 }
