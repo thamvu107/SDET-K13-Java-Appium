@@ -4,34 +4,7 @@ import java.util.Arrays;
 
 public class MergeArray {
     public static void main(String[] args) {
-       /*
-       Merge 2 SORTED integer array into one SORTED array
-
-        Array 01: {9, 11, 25, 35}
-        Array 02: {1, 13, 16, 27, 99}
-
-        Expected output: {1, 1, 12, 13, 16, 16, 27, 28, 34, 99}
-
-        problems:
-        1. has 2 sorted arrays
-        Then
-            generate 2 arrays
-            sort 2 arrays
-        2. merge 2 arrays
-            init merge array with length = array1 length + array2 length
-            while array 1 Or array 2 still has value => i < length Or j < length
-                if ( i < length1 && ( arr1[i] <= array2[j]) || i < length1 && j >= length2)
-                    arr3[k] = arr1[i];
-                    then increase index of arr1
-                else
-                 arr3[k] = arr2[j];
-                 then increase index of arr2
-                and increase index of merge array (k++);
-        3. sort the merged array
-        */
-
-        // 1. has 2 sorted arrays
-
+       // 1. has 2 sorted arrays
         int[] arr1 = Helper.generateIntNumberArray(3, 90);
         int[] arr2 = Helper.generateIntNumberArray(6, 100);
 
@@ -67,4 +40,30 @@ public class MergeArray {
 
         return mergedArray;
     }
+
+    /*
+       Merge 2 SORTED integer array into one SORTED array
+
+        Array 01: {9, 11, 25, 35}
+        Array 02: {1, 13, 16, 27, 99}
+
+        Expected output: {1, 1, 12, 13, 16, 16, 27, 28, 34, 99}
+
+        problems:
+        1. has 2 sorted arrays
+        Then
+            generate 2 arrays
+            sort 2 arrays
+        2. merge 2 arrays
+            init merge array with length = array1 length + array2 length
+            while array 1 Or array 2 still has value => i < length Or j < length
+                if ( i < length1 && ( arr1[i] <= array2[j]) || i < length1 && j >= length2)
+                    arr3[k] = arr1[i];
+                    then increase index of arr1
+                else
+                 arr3[k] = arr2[j];
+                 then increase index of arr2
+                and increase index of merge array (k++);
+        3. sort the merged array
+        */
 }
