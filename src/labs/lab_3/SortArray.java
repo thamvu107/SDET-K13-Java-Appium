@@ -14,13 +14,13 @@ public class SortArray {
         boolean isSorted;
         for (int i = 0; i < numbers.length; i++) {
             isSorted = true;
-            for (int j = 1; j < numbers.length-i; j++) {
-                if (numbers[j] < numbers[j - 1]) {
-                    swap(numbers, j, j - 1);
+            for (int j = 0; j < numbers.length - i - 1; j++) {
+                if (numbers[j] > numbers[j + 1]) {
+                    swap(numbers, j, j + 1);
                     isSorted = false;
                 }
             }
-            if(isSorted)
+            if (isSorted)
                 return;
         }
     }
