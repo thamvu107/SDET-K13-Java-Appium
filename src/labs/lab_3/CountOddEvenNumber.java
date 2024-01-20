@@ -6,7 +6,7 @@ public class CountOddEvenNumber {
     public static void main(String[] args) {
 
         // 1. Generate random integer number array
-        int[] intArray = GenerateArray.intNumberArray(10, 100);
+        int[] intArray = Helper.generateIntNumberArray(10, 100);
         System.out.println(Arrays.toString(intArray));
         countEvenOddNumber(intArray);
         System.out.println();

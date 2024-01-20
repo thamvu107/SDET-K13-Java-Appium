@@ -25,7 +25,7 @@ public class FindMaxMinValue {
      */
     public static void main(String[] args) {
         // 1. has an integer array
-        int[] intArray = GenerateArray.intNumberArray(10, 100);
+        int[] intArray = Helper.generateIntNumberArray(10, 100);
         System.out.println(Arrays.toString(intArray));
 
         // 2. find min, max
