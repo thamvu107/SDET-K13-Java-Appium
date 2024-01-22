@@ -15,11 +15,11 @@ public class Helper {
 
     public static void sortAscending(int[] numbers) {
         boolean isSorted;
-        for (int i = 0; i < numbers.length; i++) {
+        for (int firstIndex = 0; firstIndex < numbers.length; firstIndex++) {
             isSorted = true;
-            for (int j = 0; j < numbers.length - i - 1; j++) {
-                if (numbers[j] > numbers[j + 1]) {
-                    swap(numbers, j, j + 1);
+            for (int secondIndex = 0; secondIndex < numbers.length - firstIndex - 1; secondIndex++) {
+                if (numbers[secondIndex] > numbers[secondIndex + 1]) {
+                    swap(numbers, secondIndex, secondIndex + 1);
                     isSorted = false;
                 }
             }
@@ -27,9 +27,15 @@ public class Helper {
                 return;
         }
     }
-    public static void swap(int[] array, int index1, int index2) {
-        int temp = array[index1];
-        array[index1] = array[index2];
-        array[index2] = temp;
+    public static void swap1(int[] array, int firstIndex, int secondIndex) {
+        int temp = array[firstIndex];
+        array[firstIndex] = array[secondIndex];
+        array[secondIndex] = temp;
+    }
+
+    public static void swap(int[] array, int index1, int index2){
+        array[index1] = array[index1] + array[index2];
+        array[index2] = array[index1] - array[index2];
+        array[index1] = array[index1] - array[index2];
     }
 }
