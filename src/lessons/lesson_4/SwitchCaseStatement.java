@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class SwitchCaseStatement {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please guess and input a number:");
-        int userNum = input.nextInt();
+        System.out.println("Please input the order:");
+        int orderNumber = input.nextInt();
 
-        switch (userNum) {
+        switch (orderNumber) {
             case 1:
                 System.out.println("Winner");
                 break;

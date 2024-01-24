@@ -4,24 +4,38 @@ import java.util.Scanner;
 
 public class SwitchCaseStatementCalendar {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Please guess and input a number from 1 to 7:");
-        int day = input.nextInt();
-
-        if (day >= 2 && day <= 6)
-            System.out.println("Weekdays!");
-        else if (day == 7 || day == 8) {
-            System.out.println("Weekends!");
+        int dayNum = inputDayNumber();
+        if (checkDayNumValid(dayNum)) {
+            String dayName = getDayOfWeek(dayNum);
+            String weekend = isWeekend(dayNum) == true ? "It's weekends" : "It's weekdays";
+            System.out.printf("Today is %s. It's %s\n", dayName, weekend);
         } else {
-            System.out.println("Invalid number.");
+            System.out.println("Invalid day number.");
         }
 
-        String dayName;
-        getDayOfWeek(day);
     }
 
-    private static void getDayOfWeek(int day) {
-        String dayName;
+    private static boolean checkDayNumValid(int dayNum) {
+        if (dayNum < 1 || dayNum >= 8)
+            return false;
+        return true;
+    }
+
+    private static boolean isWeekend(int day) {
+        if (day == 6 && day == 7)
+            return true;
+        return false;
+    }
+
+    private static int inputDayNumber() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Please input a day number from 1 to 7:");
+        int day = input.nextInt();
+        return day;
+    }
+
+    private static String getDayOfWeek(int day) {
+        String dayName = null;
         switch (day) {
             case 1:
                 dayName = "Monday";
@@ -41,12 +55,10 @@ public class SwitchCaseStatementCalendar {
             case 6:
                 dayName = "Saturday";
                 break;
-            case 7:
-                dayName = "Sunday";
-                break;
             default:
-                System.out.println("Invalid number.");
-
+                dayName = "Sunday";
         }
+
+        return dayName;
     }
 }
