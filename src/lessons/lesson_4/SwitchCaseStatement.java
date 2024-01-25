@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 public class SwitchCaseStatement {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         System.out.println("Please input the order:");
+        Scanner input = new Scanner(System.in);
         int orderNumber = input.nextInt();
 
+        printOderPrize(orderNumber);
+    }
+
+    private static void printOderPrize(int orderNumber) {
         switch (orderNumber) {
             case 1:
                 System.out.println("Winner");

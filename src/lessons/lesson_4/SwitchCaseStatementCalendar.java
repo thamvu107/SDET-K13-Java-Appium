@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class SwitchCaseStatementCalendar {
     public static void main(String[] args) {
+        System.out.println("Please input a day number from 1 to 7:");
         int dayNum = inputDayNumber();
+
         if (checkDayNumValid(dayNum)) {
             String dayName = getDayOfWeek(dayNum);
             String weekend = isWeekend(dayNum) == true ? "It's weekends" : "It's weekdays";
@@ -16,9 +18,9 @@ public class SwitchCaseStatementCalendar {
     }
 
     private static boolean checkDayNumValid(int dayNum) {
-        if (dayNum < 1 || dayNum >= 8)
-            return false;
-        return true;
+        if (dayNum >0 && dayNum < 8)
+            return true;
+        return false;
     }
 
     private static boolean isWeekend(int day) {
@@ -27,9 +29,9 @@ public class SwitchCaseStatementCalendar {
         return false;
     }
 
+    // TODO move to Util file
     private static int inputDayNumber() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please input a day number from 1 to 7:");
         int day = input.nextInt();
         return day;
     }
