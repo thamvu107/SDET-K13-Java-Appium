@@ -8,19 +8,17 @@ public class ArrayListLearning {
     public static void main(String[] args) {
         // CRUD
         // Create
-        List<String> fruits = new ArrayList<>(Arrays.asList("Apple", "Orange"));
-        int size = fruits.size();
+        List<String> fruits = new ArrayList<>();
+        // List<String> fruits = new ArrayList<>(Arrays.asList("Apple", "Orange"));
+
+        displayFruitListStatus(fruits.size(), fruits);
         System.out.println(fruits);
-        checkFruitItem(size, fruits);
 
         // Add
-        fruits.add("Chery");
-        fruits.add("Watermelon");
+        fruits.add("Apple");
         fruits.add("Banana");
-        fruits.add("Pear");
-        fruits.add("Grape");
-        System.out.println("Fruits after adding items" + fruits);
-        System.out.printf("Fruits length is: %d\n", fruits.size());
+        fruits.add("Orange");
+        System.out.printf("Fruits has %d items: %s\n", fruits.size(), String.join(", ", fruits));
 
         // Read
         System.out.println("\nFruit item with for loop:");
@@ -39,7 +37,7 @@ public class ArrayListLearning {
         int indexToReplace = 2;
         String replaceValue = "Raspberry";
         fruits.set(indexToReplace, replaceValue);
-        System.out.println("Updated ArrayList:\n" + fruits);
+        System.out.println("\nUpdated ArrayList:\n" + fruits);
 
         // Delete by index
         int indexToRemove = 2; // Raspberry
@@ -51,15 +49,14 @@ public class ArrayListLearning {
         fruits.remove(itemToRemove);
         System.out.println("Fruits after removing by item: " + fruits);
 
-
     }
 
-    private static void checkFruitItem(int size, List<String> fruits) {
+    private static void displayFruitListStatus(int size, List<String> fruits) {
         // Check fruits empty
         String itemSingular = "item";
         String itemPlural = "items";
         String itemText = size == 1 ? itemSingular : itemPlural;
-        String messageCheckEmpty = (fruits.isEmpty() == true) ? " Fruits is empty" : String.format("Fruits has %d %s", size, itemText);
+        String messageCheckEmpty = (fruits.isEmpty()) ? " Fruits is empty" : String.format("Fruits has %d %s", size, itemText);
         System.out.println(messageCheckEmpty);
     }
 }
