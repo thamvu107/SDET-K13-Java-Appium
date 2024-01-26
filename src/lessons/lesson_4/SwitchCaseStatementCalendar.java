@@ -9,8 +9,7 @@ public class SwitchCaseStatementCalendar {
 
         if (checkDayNumValid(dayNum)) {
             String dayName = getDayOfWeek(dayNum);
-            String weekend = isWeekend(dayNum) == true ? "It's weekends" : "It's weekdays";
-            System.out.printf("Today is %s. It's %s\n", dayName, weekend);
+            System.out.printf("Today is %s\n", dayName);
         } else {
             System.out.println("Invalid day number.");
         }
@@ -23,11 +22,6 @@ public class SwitchCaseStatementCalendar {
         return false;
     }
 
-    private static boolean isWeekend(int day) {
-        if (day == 6 && day == 7)
-            return true;
-        return false;
-    }
 
     // TODO move to Util file
     private static int inputDayNumber() {
