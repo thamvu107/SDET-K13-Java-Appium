@@ -7,35 +7,45 @@ import java.util.Scanner;
 
 public class SimpleMenuWithOptions {
     private static final int MAX_VALUE = 1000;
-    private static final int ITEMS = 10;
 
     public static void main(String[] args) {
 
-        List<Integer> numbers = generateArrayListNumbers(ITEMS, MAX_VALUE);
+        List<Integer> numbers = generateArrayListNumbers(MAX_VALUE);
+        printSizeOfArrayList(numbers);
+
         boolean isContinue = true;
         while (isContinue) {
             printMenu();
-            int userOption = selectMenuItem();
-            switch (userOption) {
-                case 1:
-                    printNumbers(numbers);
-                    break;
-                case 2:
-                    int maxNumber = findMaxNumber(numbers);
-                    System.out.println("Max number is: " + maxNumber);
-                    break;
-                case 3:
-                    int minNumber = findMinNumber(numbers);
-                    System.out.println("Min number is: " + minNumber);
-                    break;
-                case 4:
-                    int targetNumber = inputTargetNumber();
-                    int searchResult = searchNumber(numbers, targetNumber);
-                    String searchMessage = (searchResult != -1) ? String.format("%d is found at index %d", targetNumber, searchResult) : String.format("%d is not found in arraylist", targetNumber);
-                    System.out.println(searchMessage);
-                    break;
-                default:
-                    isContinue = false;
+            if (numbers.isEmpty()) {
+                System.out.println("ArrayList is empty");
+                isContinue = false;
+            } else {
+                int userOption = selectMenuItem();
+                switch (userOption) {
+                    case 1:
+                        printNumbers(numbers);
+                        break;
+                    case 2:
+                        System.out.println("Max number is: " + findMaxNumber(numbers));
+                        break;
+                    case 3:
+                        System.out.println("Min number is: " + findMinNumber(numbers));
+                        break;
+                    case 4:
+                        int targetNumber = inputTargetNumber();
+                        int searchResult = searchNumber(numbers, targetNumber);
+
+                        String foundTargetNumber = String.format("%d is found at index %d", targetNumber, searchResult);
+                        String notFoundTargetNumber = String.format("%d is not found in arraylist", targetNumber);
+
+                        String searchMessageResult = (searchResult != -1) ? foundTargetNumber : notFoundTargetNumber;
+                        System.out.println(searchMessageResult);
+                        break;
+                    default:
+                        System.out.println("Exit the simple menu with options program");
+                        isContinue = false;
+                }
+
             }
 
         }
@@ -68,11 +78,6 @@ public class SimpleMenuWithOptions {
     }
 
     private static int findMaxNumber(List<Integer> numbers) {
-        /*
-         * case 2: print maximum value ->
-         *           Find out the maximum number from array list
-         *           print out maximum number
-         * */
         int maxNumber = numbers.get(0);
         for (Integer number : numbers) {
             if (maxNumber < number)
@@ -82,8 +87,8 @@ public class SimpleMenuWithOptions {
     }
 
     private static void printNumbers(List<Integer> numbers) {
-        System.out.println(numbers.toString());
-
+        String message = numbers.isEmpty() ? String.format("ArrayList is empty.") : String.format("All numbers \n%s", numbers.toString());
+        System.out.println(message);
     }
 
     private static int selectMenuItem() {
@@ -91,26 +96,34 @@ public class SimpleMenuWithOptions {
         Scanner scanner = new Scanner(System.in);
         int menuItem = scanner.nextInt();
         if (menuItem < 1 || menuItem > 5)
-            System.out.println("Invalid number. Please views the menu items and enter corresponding number, Thanks!");
+            System.out.println("Invalid number for menu item.\nPlease double check the menu and enter corresponding number for menu item, Thanks!");
         return menuItem;
     }
 
     private static void printMenu() {
-        System.out.println("MENU");
+        System.out.println("\n----------MENU----------");
         String[] menuItems = {"Print all numbers", "Print maximum value", "Print minimum value", "Search number", "Exit"};
         for (int index = 0; index < menuItems.length; index++) {
             System.out.printf("%d. %s\n", index + 1, menuItems[index]);
         }
     }
 
-    private static ArrayList<Integer> generateArrayListNumbers(int items, int maxValue) {
-        ArrayList<Integer> arrayList = new ArrayList<>(items);
-        for (int index = 0; index < items; index++) {
+    private static void printSizeOfArrayList(List<Integer> numbers) {
+        int arrayListSize = numbers.size();
+        System.out.println(String.format("ArrayList has %d %s", arrayListSize, arrayListSize > 1 ? "numbers" : "number"));
+    }
+
+    private static ArrayList<Integer> generateArrayListNumbers(int maxValue) {
+        int maxSize = 50;
+        int randomSize = new Random().nextInt(maxSize + 1);
+        ArrayList<Integer> arrayList = new ArrayList<>(randomSize);
+        for (int index = 0; index < randomSize; index++) {
             Random random = new Random();
             arrayList.add(random.nextInt(maxValue + 1));
         }
         return arrayList;
     }
+
     /*
      * Lab 4: Create a simple menu with 4 options:
      *   4.1 Generate an ArrayList with random numbers (not fixed numbers) those are less than 1000
