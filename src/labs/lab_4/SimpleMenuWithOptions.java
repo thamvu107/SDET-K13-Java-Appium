@@ -35,16 +35,10 @@ public class SimpleMenuWithOptions {
                     System.out.println(searchMessage);
                     break;
                 default:
-//                    exit(isContinue);
                     isContinue = false;
             }
 
         }
-    }
-
-    private static boolean exit(boolean isContinue) {
-        isContinue = false;
-        return isContinue;
     }
 
     private static int inputTargetNumber() {
