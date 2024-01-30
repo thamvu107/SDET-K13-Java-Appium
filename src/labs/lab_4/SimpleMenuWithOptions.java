@@ -34,12 +34,7 @@ public class SimpleMenuWithOptions {
                     case 4:
                         int targetNumber = inputTargetNumber();
                         int searchResult = searchNumber(numbers, targetNumber);
-
-                        String foundTargetNumber = String.format("%d is found at index %d", targetNumber, searchResult);
-                        String notFoundTargetNumber = String.format("%d is not found in arraylist", targetNumber);
-
-                        String searchMessageResult = (searchResult != -1) ? foundTargetNumber : notFoundTargetNumber;
-                        System.out.println(searchMessageResult);
+                        printSearchResult(targetNumber, searchResult);
                         break;
                     default:
                         System.out.println("Exit the simple menu with options program");
@@ -49,6 +44,14 @@ public class SimpleMenuWithOptions {
             }
 
         }
+    }
+
+    private static void printSearchResult(int targetNumber, int searchResult) {
+        String foundTargetNumber = String.format("%d is found at index %d", targetNumber, searchResult);
+        String notFoundTargetNumber = String.format("%d is not found in arraylist", targetNumber);
+
+        String searchMessageResult = (searchResult != -1) ? foundTargetNumber : notFoundTargetNumber;
+        System.out.println(searchMessageResult);
     }
 
     private static int inputTargetNumber() {
