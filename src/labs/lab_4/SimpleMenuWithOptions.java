@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class SimpleMenuWithOptions {
-    private static final int MAX_VALUE = 1000;
+    private static final int MAX_VALUE = 999;
 
     public static void main(String[] args) {
 
@@ -20,7 +20,8 @@ public class SimpleMenuWithOptions {
                 System.out.println("ArrayList is empty");
                 isContinue = false;
             } else {
-                int userOption = selectMenuItem();
+                Scanner scanner = new Scanner(System.in);
+                int userOption = selectMenuItem(scanner);
                 switch (userOption) {
                     case 1:
                         printNumbers(numbers);
@@ -32,17 +33,16 @@ public class SimpleMenuWithOptions {
                         System.out.println("Min number is: " + findMinNumber(numbers));
                         break;
                     case 4:
-                        int targetNumber = inputTargetNumber();
+                        int targetNumber = inputTargetNumber(scanner);
                         int searchResult = searchNumber(numbers, targetNumber);
                         printSearchResult(targetNumber, searchResult);
                         break;
                     default:
                         System.out.println("Exit the simple menu with options program");
+                        scanner.close();
                         isContinue = false;
                 }
-
             }
-
         }
     }
 
@@ -54,9 +54,8 @@ public class SimpleMenuWithOptions {
         System.out.println(searchMessageResult);
     }
 
-    private static int inputTargetNumber() {
+    private static int inputTargetNumber(Scanner scanner) {
         System.out.println("Please enter a target number:");
-        Scanner scanner = new Scanner(System.in);
         int targetNumber = scanner.nextInt();
         return targetNumber;
     }
@@ -94,10 +93,10 @@ public class SimpleMenuWithOptions {
         System.out.println(message);
     }
 
-    private static int selectMenuItem() {
+    private static int selectMenuItem(Scanner scanner) {
         System.out.println("Please enter a number corresponding to the menu item:");
-        Scanner scanner = new Scanner(System.in);
         int menuItem = scanner.nextInt();
+
         if (menuItem < 1 || menuItem > 5)
             System.out.println("Invalid number for menu item.\nPlease double check the menu and enter corresponding number for menu item, Thanks!");
         return menuItem;
