@@ -6,21 +6,33 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class SimpleMenuWithOptions {
-    private static final int MAX_VALUE = 999;
+    private static final int MAX_VALUE_BOUND = 1000;
+    private static int maxSize = 100;
 
     public static void main(String[] args) {
 
-        List<Integer> numbers = generateArrayListNumbers(MAX_VALUE);
+        Scanner scanner = new Scanner(System.in);
+
+        List<Integer> numbers = generateArrayListNumbers(0, 1, MAX_VALUE_BOUND);
         printSizeOfArrayList(numbers);
 
         boolean isContinue = true;
         while (isContinue) {
-            printMenu();
             if (numbers.isEmpty()) {
                 System.out.println("ArrayList is empty");
-                isContinue = false;
+                System.out.println("Do you want to re-generate another arraylist numbers? Please enter (y/n)");
+                String confirmOption = scanner.nextLine();
+                if (confirmOption.equals("y")) {
+                    numbers = generateArrayListNumbers(1, maxSize, MAX_VALUE_BOUND);
+                    printSizeOfArrayList(numbers);
+                } else if (confirmOption.equals("n")) {
+                    exit(scanner);
+                    isContinue = false;
+                } else {
+                    System.out.println("Invalid option. Please enter (y/n)");
+                }
             } else {
-                Scanner scanner = new Scanner(System.in);
+                printMenu();
                 int userOption = selectMenuItem(scanner);
                 switch (userOption) {
                     case 1:
@@ -38,12 +50,16 @@ public class SimpleMenuWithOptions {
                         printSearchResult(targetNumber, searchResult);
                         break;
                     default:
-                        System.out.println("Exit the simple menu with options program");
-                        scanner.close();
+                        exit(scanner);
                         isContinue = false;
                 }
             }
         }
+    }
+
+    private static void exit(Scanner scanner) {
+        System.out.println("Exit the simple menu with options program");
+        scanner.close();
     }
 
     private static void printSearchResult(int targetNumber, int searchResult) {
@@ -115,13 +131,12 @@ public class SimpleMenuWithOptions {
         System.out.println(String.format("ArrayList has %d %s", arrayListSize, arrayListSize > 1 ? "numbers" : "number"));
     }
 
-    private static ArrayList<Integer> generateArrayListNumbers(int maxValue) {
-        int maxSize = 50;
-        int randomSize = new Random().nextInt(maxSize + 1);
-        ArrayList<Integer> arrayList = new ArrayList<>(randomSize);
-        for (int index = 0; index < randomSize; index++) {
+    private static ArrayList<Integer> generateArrayListNumbers(int minSize, int maxSize, int maxValueBound) {
+        int size = new Random().nextInt((maxSize - minSize)) + minSize;
+        ArrayList<Integer> arrayList = new ArrayList<>(size);
+        for (int index = 0; index < size; index++) {
             Random random = new Random();
-            arrayList.add(random.nextInt(maxValue + 1));
+            arrayList.add(random.nextInt(maxValueBound));
         }
         return arrayList;
     }
