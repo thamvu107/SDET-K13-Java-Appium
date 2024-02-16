@@ -1,4 +1,4 @@
-package src.lessons;
+package src.lessons.lesson_2;
 
 import java.util.Scanner;
 
@@ -18,7 +18,6 @@ public class lesson2 {
         int b = 2;
         int c = ++a + b++;
 
-        // Prefix > right operand > assign value for left operand ? postfix
         // a = 2; b= 3; c =4;
         System.out.printf("\na = %d, b = %d, c = %d\n", a, b, c);
 
