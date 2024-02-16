@@ -10,12 +10,14 @@ public class ListToSet {
         myList.add("Chery");
         myList.add("Chery");
         myList.add("Watermelon");
+        myList.add("Banana");
+        myList.add("Lemon");
 
         // contain
         System.out.println(myList.contains("Chery"));
         List<String> uniqueList = new ArrayList<>();
-        for (String value: myList) {
-            if (!uniqueList.contains(value)){
+        for (String value : myList) {
+            if (!uniqueList.contains(value)) {
                 uniqueList.add(value);
             }
         }
@@ -26,6 +28,15 @@ public class ListToSet {
         Set<String> mySet = new HashSet<>(myList);
         List<String> listFromSet = new ArrayList<>(mySet);
         System.out.println(mySet);
+
+        // sublist
+        List<String> subList = listFromSet.subList(1, 3);
+        System.out.println("subList: " + subList);
+        System.out.println("listFromSet: " + listFromSet);
+
+        // Remove a range
+        listFromSet.subList(1, 4).clear();
+        System.out.println("listFromSet: " + listFromSet);
 
     }
 }
