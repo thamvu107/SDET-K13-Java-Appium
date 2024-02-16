@@ -1,4 +1,4 @@
-package src.lessons.lesson3;
+package src.lessons.lesson_3;
 
 public class ForLooping {
 
