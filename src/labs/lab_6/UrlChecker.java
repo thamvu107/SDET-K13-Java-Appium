@@ -22,7 +22,7 @@ public class UrlChecker {
 
     public static void main(String[] args) throws MalformedURLException {
         List<String> urls = uriList();
-        showURLs(urls);
+        //showURLs(urls);
 
         int urlIndex = 13;
         String url = urls.get(urlIndex);
