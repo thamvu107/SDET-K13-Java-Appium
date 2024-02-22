@@ -1,2 +1,12 @@
-package src.lessons.lesson_8;public class BatteryRobotDog {
+package src.lessons.lesson_8;
+
+public class BatteryRobotDog extends RobotDog {
+    // static block | BAD design
+    static {
+        dogId = 10;
+    }
+
+    public static void doAnotherSth(){
+        System.out.println("Do another battery robotDog");
+    }
 }

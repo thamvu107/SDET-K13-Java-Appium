@@ -1,10 +1,9 @@
 package src.lessons.lesson_8;
 
-// Reuse concept
-// Child class | subclass
-// IS-A relationship -> Controller
-public class BatteryRobotCat extends RobotCat{
-    public BatteryRobotCat() {
-        super("name", "abc");
+public class SolarRobotCat extends RobotCat {
+    @Override
+    public String charge() {
+        String prefix = super.charge();
+        return prefix.concat(" with solar");
     }
 }
