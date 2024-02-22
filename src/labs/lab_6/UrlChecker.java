@@ -1,8 +1,6 @@
 package src.labs.lab_6;
 
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -115,6 +113,7 @@ public class UrlChecker {
 
         return uriList;
     }
+
     private static List<List<String>> checkSynTaxURLs(List<String> urlList) {
 
         List<String> validURLs = new ArrayList<>();

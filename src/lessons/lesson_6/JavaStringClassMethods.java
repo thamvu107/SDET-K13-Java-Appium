@@ -54,10 +54,18 @@ public class JavaStringClassMethods {
         System.out.println("result: " + result);
         System.out.println("result.contains(\"passed\"): " + result.contains("passed"));
 
-        // Equals &
-//        String use
-        // NOTE:
+        // Regular expression |Regex
+        System.out.println("\n----------------------------Regex----------------------------");
+
+        String cookingTimeString = "Time 200 mins";
+        String filerNumberString = cookingTimeString.replaceAll("[^0-9]","");
+        int cookingTime = Integer.parseInt(filerNumberString);
+        System.out.println("cookingTime: " + cookingTime);
+
+
+
         /*
+         NOTE:
             1. Use the String.replace over the String.replaceAll when possible
             2. If you have to use the String.replaceAll, try to precompile the regular expression in the hot paths
             3. Go with a specialized version of the String.replace(char, char) instead of the String.replace(String, String) when you can
