@@ -5,10 +5,27 @@ import java.util.Map;
 import java.util.Set;
 
 public class HasMapLearning {
+    /*
+     * write script to check header a website
+     *  +  Header item must be correct text
+     *  +  Hyperlink must be correct
+     *  +  Header has sub-menu
+     *      + sub-menu must be correct text
+     *      + hyperlink must be correct
+     *
+     * => Loop over the menu items => MenuItemList => (element)
+     *      Loop over the menuItemList
+     *      + elementText
+     *      + MouseHover/Click onto the menu element
+     *          + Create a map for subMenuMap -> [subMenuItemText, subMenuItemHyperLink]
+     *              menuItemMap.put(elementText,subMenuMap)
+                     Map<String, Map<String, String>> menuItemMap = new HashMap<>();
+     *
+     *
+     * */
     public static void main(String[] args) {
         // CRUD
         Map<Integer, String> emergencyList = new HashMap<>();
-        Map<String, Map<String, String>> menuItemMap = new HashMap<>();
 
         // Adding new entry into a map
         emergencyList.put(113, "Policy Dept");
@@ -57,7 +74,7 @@ public class HasMapLearning {
         }
     }
 
-    private static void printMapValues( Map<Integer, String> map) {
+    private static void printMapValues(Map<Integer, String> map) {
         Set<Integer> keys = map.keySet();
         for (int key : keys) {
             System.out.println(map.get(key));
