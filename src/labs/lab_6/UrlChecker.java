@@ -83,33 +83,42 @@ public class UrlChecker {
     private static List<String> uriList() {
         List<String> uriList = new ArrayList<>();
 
-        uriList.add("https://www.google.com");
-        uriList.add("HTTPS://google.com");
-        uriList.add("https:google.com");
-        uriList.add("https://google.com//");
+        uriList.add("https://www.google.com"); // Verify the URL field by entering the valid URL with https.
+        uriList.add("HTTP://google.com"); //  the URL field by entering the valid URL with http only.
+        uriList.add("htps://google.com"); // check protocol is typo
+        uriList.add("google.com"); //  the URL field by entering the without entering the Https or HTTP.
+        uriList.add("https://google"); //  the URL field without entering the extension name
+        uriList.add("http://localhost"); // without TLD
+        uriList.add("https://googlecom"); //  the URL field without entering any dot.
+        uriList.add("https://www.com"); //  the URL field by entering only the extension
+        uriList.add("https://www.guru99.com"); //  the URL field by entering the combination of number and character
+        uriList.add("https://99.com"); //  the URL field by entering the numbers only.
+        uriList.add("telnet://192.0.2.16:80/");
+        uriList.add("https://google@.com"); //  the URL field by entering the combination of number, character and special characters other than (.)
+        uriList.add("https://tham-vu@www.guru99.com:8080/");
+        uriList.add("https://www.goo  gle.com"); //  the Url fields by entering the space between the domains
+        uriList.add(" "); //  the URL field by entering only blank space
+        uriList.add(""); //  the URL field without entering any data
+        uriList.add("https:google.com"); // The URL without double slashes before authority
+        uriList.add("https:google.com//"); // The URL has double slashes but its note before authority
         uriList.add("https:///google.com");
         uriList.add("https://en.google");
         uriList.add("://google.com");
         uriList.add("http://");
         uriList.add("http://www");
-        uriList.add("https://.com");
         uriList.add("https://com");
         uriList.add("https://www.com");
         uriList.add("http://www. .com");
-        uriList.add("google.com");
-        uriList.add("htps://google.com");
         uriList.add("https://goog le.com");
+        uriList.add("http://.www.foo.bar/");
+        uriList.add("http://www.foo.bar/");
+        uriList.add("http://www.foo.bar./");
         uriList.add("https://tham.vu@vi.google.org:8080/");
         uriList.add("ftp://ftp.is.co.za/rfc/rfc1808.txt");
         uriList.add("file://192.168.1.57");
-        uriList.add("http://localhost"); // without TLD
         uriList.add("http://en.wikipedia.org:8080/wiki");
         uriList.add("https://www.rfc-editor.org/");
         uriList.add("ldap://[2001:db8::7]/c=GB?objectClass?one");
-        uriList.add("telnet://192.0.2.16:80/");
-        uriList.add("http://.www.foo.bar/");
-        uriList.add("http://www.foo.bar/");
-        uriList.add("http://.www.foo.bar./");
 
         return uriList;
     }
