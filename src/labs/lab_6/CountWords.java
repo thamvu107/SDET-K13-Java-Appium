@@ -1,6 +1,7 @@
 package src.labs.lab_6;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -13,12 +14,20 @@ public class CountWords {
      * Ex: Hello, tui ten teo, ban co phai ten teo khong?
      * */
 
-    private static final String WORD_REGEX = "\\b\\w+\\b";
+    private static final String WORD_REGEX = "\\p{L}+";
 
     public static void main(String[] args) {
-        String sentence = inputSentence();
-        Map<String,Integer> wordMap = groupWords(sentence);
-        printWordCounts(wordMap);
+        String mySentence ="Tui tên là Thắm, xin chào bạn, tên của bạn là gì";
+
+        System.out.println("Group & count words in sentence:\n" + mySentence);
+        printWordCounts(groupWords(mySentence));
+
+        String inputSentence = inputSentence();
+        Map<String,Integer> wordsMap = groupWords(inputSentence);
+        System.out.println("Group & count words in sentence:\n" + inputSentence);
+        printWordCounts(wordsMap);
+
+
 
     }
     private static void printWordCounts(Map<String, Integer> wordMap){
@@ -28,10 +37,10 @@ public class CountWords {
     }
 
     private static Map<String, Integer> groupWords(String sentence) {
-        Pattern pattern = Pattern.compile(WORD_REGEX, Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile(WORD_REGEX, Pattern.UNICODE_CHARACTER_CLASS);
         Matcher matcher = pattern.matcher(sentence);
 
-        Map<String, Integer> wordCounts = new HashMap<>();
+        Map<String, Integer> wordCounts = new LinkedHashMap<>();
         while (matcher.find()) {
             String word = matcher.group();
             wordCounts.put(word, wordCounts.getOrDefault(word, 0) + 1);
