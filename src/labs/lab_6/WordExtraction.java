@@ -24,7 +24,7 @@ public class WordExtraction {
 
         String inputText = inputSentence();
         Map<String, Integer> wordsMap = groupWords(inputText);
-        System.out.printf("\nSentence: \"%s\"\n", inputText);gi
+        System.out.printf("\nSentence: \"%s\"\n", inputText);
 
         printWordCounts(wordsMap);
     }
