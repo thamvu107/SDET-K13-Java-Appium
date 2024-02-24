@@ -11,7 +11,7 @@ public class WordExtraction {
      * Ex: Hello, tui ten teo, ban co phai ten teo khong?
      * */
 
-    private static final String EXTRACT_WORD_PATTERN = "\\b[\\p{L}'']+\\b";
+    private static final String EXTRACT_WORD_PATTERN = "\\b[\\p{L}']+\\b";
 
     public static void main(String[] args) {
         String viText = "Tui tên Tí, Tí chào BẠN. Tên bạn là gì?";
@@ -24,7 +24,7 @@ public class WordExtraction {
 
         String inputText = inputSentence();
         Map<String, Integer> wordsMap = groupWords(inputText);
-        System.out.printf("\nSentence: \"%s\"\n", inputText);
+        System.out.printf("\nSentence: \"%s\"\n", inputText);gi
 
         printWordCounts(wordsMap);
     }
