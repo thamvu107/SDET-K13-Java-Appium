@@ -1,10 +1,11 @@
 package src.lessons.lesson_8;
 
 // Supper class, parent class
-public class RobotCat extends Machine{
+public class RobotCat extends Machine {
+    // Attributes
     private String name;
     private String productionDate;
-
+    // Constructor Overloading
     public RobotCat() {
     }
 
@@ -17,6 +18,7 @@ public class RobotCat extends Machine{
         this.productionDate = productionDate;
     }
 
+    // Behavior
     public String getName() {
         return name;
     }
@@ -41,24 +43,22 @@ public class RobotCat extends Machine{
     /*
      * Overloading:
      *  + SAME class
-     *  + Compile time
      *  + Base on method signature: same function + different params
-     *
+     *  + Happen in: Compile time
      * */
 
     /*
-    * Overriding happen when
-    * + at least 2 classes
-    * AND subclass class Inheritance parent class
-    * AND happen in running time
-    * method signature: same ( same function + same params)
-    * */
-    protected String charge(){
+     * Overriding:
+     * + At least 2 classes AND subclass class Inheritance parent class
+     * + based on method signature: same ( same function + same params)
+     * + happen in: Running time
+     * */
+    protected String charge() {
         return "charging";
     }
+
     @Override
     public String toString() {
         return "RobotCat{" + "name='" + name + '\'' + "}\n";
-
     }
 }
