@@ -7,8 +7,4 @@ public class ContractEmployee extends Employee{
         super(name, EmployeeType.CONTRACT, CONTRACT_SALARY);
     }
 
-    @Override
-    protected double getBaseSalary() {
-        return CONTRACT_SALARY;
-    }
 }
