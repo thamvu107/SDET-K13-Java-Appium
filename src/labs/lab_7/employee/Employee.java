@@ -4,7 +4,7 @@ import src.labs.lab_7.employee.EmployeeType;
 public class Employee {
 
     // Attributes
-    private static int employeeId;
+    private int employeeId;
     private String name;
     private EmployeeType employeeType;
 
@@ -20,7 +20,7 @@ public class Employee {
     }
 */
     public Employee(String name, EmployeeType employeeType, double baseSalary) {
-        this.employeeId = ++employeeId;
+        this.employeeId = ++employeeId; // TODO fixe auto increase ID
         this.name = name;
         this.employeeType = employeeType;
         this.baseSalary = baseSalary;
