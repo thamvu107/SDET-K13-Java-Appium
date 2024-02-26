@@ -1,5 +1,10 @@
 package src.labs.lab_7.animal;
 
+import src.labs.lab_7.employee.EmployeeController;
+
+import java.util.Arrays;
+import java.util.List;
+
 public class AnimalDemo {
     /*
     * Racing animal simple version
@@ -15,15 +20,20 @@ public class AnimalDemo {
     * */
     public static void main(String[] args) {
         Animal unknownAnimal = new Animal("unknown Animal");
-        System.out.println(unknownAnimal);
-        System.out.println(unknownAnimal.getSpeed());
 
         Animal horse = new Horse();
         horse.setName("Horse");
         horse.setSpeed();
-        System.out.println(horse);
 
         Animal tiger = new Tiger("Tiger");
-        System.out.println(tiger);
+
+        Animal dog = new Dog("Dog");
+
+        List<Animal> animalList = Arrays.asList(unknownAnimal, horse, tiger, dog);
+
+        AnimalController.printAllAnimal(animalList);
+
+        Animal winner = AnimalController.findWinnerAnimal(animalList);
+        System.out.printf("Winner is %s, with speed: %d", winner.getName(), winner.getSpeed());
     }
 }
