@@ -1,9 +1,10 @@
 package src.labs.lab_7.employee;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
-public class EmployeeDemo {
+public class EmployeeSalary {
     public static void main(String[] args) {
         Employee emp1 = new Employee("Ti", EmployeeType.FULL_TIME, 50_000);
 
@@ -19,7 +20,8 @@ public class EmployeeDemo {
         EmployeeController.printAllEmployees(employeeList);
 
         double baseSalaryTotal = EmployeeController.calculateBaseSalaryTotal(employeeList);
-        System.out.println("\nTotal base salary of employees: " + baseSalaryTotal);
+
+        System.out.println("\nTotal base salary of employees: " + EmployeeController.formatDecimal(baseSalaryTotal));
     }
 
     /*

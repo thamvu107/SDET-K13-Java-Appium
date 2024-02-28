@@ -7,12 +7,11 @@ public class Animal {
     private static final int DEFAULT_MAX_SPEED = 50;
     protected static int increaseId = 1;
 
+    // Attributes
     protected String id;
     protected AnimalTypes type;
 
-
     protected String name;
-
     protected int speed;
 
     public Animal() {
