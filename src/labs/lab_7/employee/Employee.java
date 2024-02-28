@@ -2,26 +2,16 @@ package src.labs.lab_7.employee;
 import src.labs.lab_7.employee.EmployeeType;
 
 public class Employee {
-    int increaseEmployeeId;
+    protected static int increaseId = 1;
 
     // Attributes
     protected int employeeId;
     protected String name;
     protected EmployeeType employeeType;
+    protected double baseSalary;
 
-    private double baseSalary;
-
-  /*  public Employee() {
-        this("Ti To");
-    }*/
-
-   /* public Employee(String name) {
-        this.employeeId = ++employeeId;
-        this.name = name;
-    }
-*/
     public Employee(String name, EmployeeType employeeType, double baseSalary) {
-        this.employeeId = ++employeeId; // TODO fixe auto increase ID
+        this.employeeId = increaseId++;
         this.name = name;
         this.employeeType = employeeType;
         this.baseSalary = baseSalary;
@@ -42,6 +32,10 @@ public class Employee {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public EmployeeType getEmployeeType() {
+        return employeeType;
     }
 
     protected double getBaseSalary() {

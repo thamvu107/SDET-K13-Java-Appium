@@ -1,7 +1,10 @@
 package src.labs.lab_7.employee;
 
+import src.labs.lab_7.animal.Animal;
+import src.labs.lab_7.animal.AnimalTypes;
 import src.lessons.lesson_8.RobotCat;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class EmployeeController {
@@ -14,10 +17,20 @@ public class EmployeeController {
         return baseSalaryTotal;
     }
 
-    public  static void printAllEmployees(List<Employee> employeeList){
+    public static void printAllEmployees(List<Employee> employeeList) {
         System.out.println("Print all employees:");
-        for (Employee employee : employeeList) {
-            System.out.println(employee);
+
+        for (int index = 0; index < employeeList.size(); index++) {
+
+            Employee emp = employeeList.get(index);
+            String typeText = "(".concat(EmployeeType.CONTRACT.equals(emp.getEmployeeType()) ? "Contract" : "Full time").concat(")");
+
+            System.out.printf("%d. %-5s %-15s %s\n", emp.getEmployeeId(), emp.getName(), typeText, formatDecimal(emp.getBaseSalary()));
         }
+    }
+
+    public static String formatDecimal(double number){
+        DecimalFormat decimalFormat = new DecimalFormat("#,###.0");
+        return decimalFormat.format(number);
     }
 }
