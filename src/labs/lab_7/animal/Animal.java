@@ -1,19 +1,51 @@
 package src.labs.lab_7.animal;
 
-import java.security.SecureRandom;
+import java.util.Random;
 
 public class Animal {
-    public static final int MAX_RANDOM_SPEED = 50;
 
-    private String name;
-    private int speed;
+    private static final int DEFAULT_MAX_SPEED = 50;
+    protected static int increaseId = 1;
+
+    protected String id;
+    protected AnimalTypes type;
+
+
+    protected String name;
+
+    protected int speed;
 
     public Animal() {
+        this.id = formatAnimalId(increaseId++);
+        this.type = AnimalTypes.UNDEFINED;
+        this.name = "Unnamed Animal";
+        this.speed = randomSpeed();
     }
 
     public Animal(String name) {
+        this.id = formatAnimalId(increaseId++);
+        this.type = AnimalTypes.UNDEFINED;
         this.name = name;
-        this.speed = updateSpeed();
+        this.speed = randomSpeed();
+    }
+
+    public Animal(AnimalTypes type, String name) {
+        this.id = formatAnimalId(increaseId++);
+        this.type = type;
+        this.name = name;
+        this.speed = randomSpeed();
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public AnimalTypes getType() {
+        return type;
+    }
+
+    public void setType(AnimalTypes type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -29,7 +61,7 @@ public class Animal {
     }
 
     public void setSpeed() {
-        this.speed = updateSpeed();
+        this.speed = randomSpeed();
     }
 
     @Override
@@ -40,11 +72,12 @@ public class Animal {
                 '}';
     }
 
-    protected int updateSpeed() {
-        return randomSpeed(MAX_RANDOM_SPEED);
+    protected String formatAnimalId(int id) {
+        return String.format("%03d", id);
     }
 
-    protected int randomSpeed(int maxSpeed){
-        return  new SecureRandom().nextInt(maxSpeed);
+    protected int randomSpeed() {
+        return new Random().nextInt(DEFAULT_MAX_SPEED + 1);
     }
+
 }

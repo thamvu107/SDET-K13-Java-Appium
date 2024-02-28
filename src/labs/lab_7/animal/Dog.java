@@ -1,14 +1,25 @@
 package src.labs.lab_7.animal;
 
-public class Dog extends Animal{
+import java.util.Random;
+
+public class Dog extends Animal {
     private static final int MAX_DOG_SPEED = 60;
 
+    public Dog() {
+        super(AnimalTypes.DOG, "Unnamed Dog");
+    }
+
     public Dog(String name) {
-        super(name);
+        super(AnimalTypes.DOG, name);
     }
 
     @Override
-    protected int updateSpeed() {
-        return randomSpeed(MAX_DOG_SPEED);
+    public void setType(AnimalTypes type) {
+        super.setType(AnimalTypes.DOG);
+    }
+
+    @Override
+    protected int randomSpeed() {
+        return new Random().nextInt(MAX_DOG_SPEED + 1);
     }
 }

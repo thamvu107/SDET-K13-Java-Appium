@@ -2,11 +2,12 @@ package src.labs.lab_7.employee;
 import src.labs.lab_7.employee.EmployeeType;
 
 public class Employee {
+    int increaseEmployeeId;
 
     // Attributes
-    private int employeeId;
-    private String name;
-    private EmployeeType employeeType;
+    protected int employeeId;
+    protected String name;
+    protected EmployeeType employeeType;
 
     private double baseSalary;
 
