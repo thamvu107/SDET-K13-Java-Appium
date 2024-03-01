@@ -27,6 +27,7 @@ public class HouseDemo {
         HouseBuilder builder1 = new HouseBuilder();
         builder1.setColor("Yellow");
         builder1.setWindows(9);
+
         House house1 = builder1.build();
 
         // method chaining - Readability
