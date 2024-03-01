@@ -1,27 +1,29 @@
-package src.labs.lab_7.employee;
+package src.lessons.lesson_10.P02_EmployeeControlModelVersion;
 
-import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
 public class EmployeeSalary {
+    /*
+    * BROKEN IS-A relationship ( use Casting)
+    * */
     public static void main(String[] args) {
-        Employee emp1 = new Employee("Ti", EmployeeType.FULL_TIME, 50_000);
+        // NOTE: Employee emp1 = new Employee("Ti", EmployeeType.FULL_TIME, 50_000); this version not working for super class cast to subclass
 
         Employee fte1 = new FullTimeEmployee("Teo");
         Employee fte2 = new FullTimeEmployee("Tung");
         Employee fte3 = new FullTimeEmployee("Tam");
+        Employee fte4 = new FullTimeEmployee("Tam");
 
         Employee contract1 = new ContractEmployee("Chi");
-        Employee contract2 = new ContractEmployee("Cong");
 
-        List<Employee> employeeList = Arrays.asList(emp1, fte1, fte2, fte3, contract1, contract2);
+        List<Employee> employeeList = Arrays.asList( fte1, fte2, fte3, fte4,contract1);
 
         EmployeeController.printAllEmployees(employeeList);
 
-        double baseSalaryTotal = new EmployeeController().calculateBaseSalaryTotal(employeeList);
+        double salaryTotal = new EmployeeController().calculateSalaryTotal(employeeList);
 
-        System.out.println("\nTotal base salary of employees: " + EmployeeController.formatDecimal(baseSalaryTotal));
+        System.out.println("\nTotal salary of employees: " + EmployeeController.formatDecimal(salaryTotal));
     }
 
     /*
