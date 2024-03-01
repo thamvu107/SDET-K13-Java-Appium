@@ -7,10 +7,10 @@ public class FTE extends Employee{
 
     public FTE(String name) {
         super(name);
-        this.employeeType = EmployeeType.FULL_TIME;
         this.baseSalary = FULL_TIME_SALARY;
         this.supportSalary = SUPPORT_SALARY;
     }
+
 
     @Override
     public double getBaseSalary() {

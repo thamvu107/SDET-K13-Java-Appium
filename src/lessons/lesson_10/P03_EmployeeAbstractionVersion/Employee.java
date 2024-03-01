@@ -32,10 +32,6 @@ public abstract class Employee {
         this.name = name;
     }
 
-    public EmployeeType getEmployeeType() {
-        return employeeType;
-    }
-
     public abstract double getBaseSalary();
 
     public abstract double getSupportSalary();

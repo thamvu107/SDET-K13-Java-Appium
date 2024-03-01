@@ -6,7 +6,6 @@ public class Contract extends Employee {
     public static final int SUPPORT_SALARY = 0;
     public Contract(String name) {
         super(name);
-        this.employeeType = EmployeeType.CONTRACT;
         this.baseSalary = CONTRACT_SALARY;
         this.supportSalary = SUPPORT_SALARY;
     }
