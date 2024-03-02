@@ -1,4 +1,4 @@
-package src.lessons.lesson_10.P03_EmployeeAbstractionVersion;
+package src.labs.lab_10;
 
 public abstract class Employee {
     /*
