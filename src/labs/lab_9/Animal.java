@@ -42,7 +42,7 @@ public class Animal {
         return name;
     }
 
-    public boolean isFlyable() {
+    public boolean getFlyable() {
         return flyable;
     }
 
@@ -73,6 +73,11 @@ public class Animal {
 
         public AnimalBuilder setFlyable(boolean flyable) {
             this.flyable = flyable;
+            return this;
+        }
+
+        public AnimalBuilder setSpeed(int speed) {
+            this.speed = speed;
             return this;
         }
 

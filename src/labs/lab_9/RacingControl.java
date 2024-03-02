@@ -7,9 +7,8 @@ import src.labs.lab_9.Bird.BirdBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-public class Racing {
+public class RacingControl {
 
     public static List<Animal> getTigers(String[] names) {
         List<Animal> list = new ArrayList<>();
@@ -44,22 +43,55 @@ public class Racing {
         return list;
     }
 
-    public static List<Animal> getBirds(String[] names) {
+    public static List<Animal> getFlyableBirds(String[] names) {
         List<Animal> list = new ArrayList<>();
         for (String name : names) {
             BirdBuilder builder = new BirdBuilder(name);
-            Animal animal = builder.build();
+            Animal animal = builder
+                    .setFlyable(true)
+                    .build();
             list.add(animal);
         }
-
         return list;
     }
 
-    public static void printAllRacer(List<Animal> animalList) {
-        System.out.printf("%-4s %-15s %-8s %-7s km/h\n", "Id", "Name", "Type", "Speed");
-        for (Animal animal : animalList) {
-            System.out.printf("%-4s %-15s %-8s %-7s km/h\n", animal.getId(), animal.getName(), "(".concat(animal.getType()).concat(")"), animal.getSpeed());
+    public static List<Animal> getUnFlyableBirds(String[] names) {
+        List<Animal> list = new ArrayList<>();
+        for (String name : names) {
+            BirdBuilder builder = new BirdBuilder(name);
+            Animal animal = builder
+                    .setFlyable(false)
+                    .build();
+            list.add(animal);
         }
+        return list;
+    }
+
+    public static void printAnimals(List<Animal> animalList) {
+        System.out.printf("\n%-3s %-4s %-15s %-8s %-10s %-6s km/h\n", "No", "Id", "Name", "Type", "Flyable", "Speed");
+        int i = 0;
+        for (Animal animal : animalList) {
+            System.out.printf("%-3d %-4s %-15s %-8s %-10s %-6d km/h\n", ++i, animal.getId(), animal.getName(), "(".concat(animal.getType()).concat(")"), animal.getFlyable() ? "Flyable" : "", animal.getSpeed());
+        }
+    }
+
+    public static void printRacingAnimals(List<Animal> animalList) {
+        System.out.printf("\n%-3s %-4s %-15s %-8s %-6s\n", "No", "Id", "Name", "Type", "Speed");
+        int i = 0;
+        for (Animal animal : animalList) {
+            System.out.printf("%-3d %-4s %-15s %-8s  %-6s km/h\n", ++i, animal.getId(), animal.getName(), "(".concat(animal.getType()).concat(")"), animal.getSpeed());
+        }
+    }
+
+    public static List<Animal> getRacingAnimalList(List<Animal> animalList) {
+        List<Animal> racingAnimalList = new ArrayList<>();
+        for (Animal animal : animalList) {
+            if (!animal.getFlyable()) {
+                racingAnimalList.add(animal);
+            }
+        }
+
+        return racingAnimalList;
     }
 
     public static Animal findAnimalWinner(List<Animal> animalList) {

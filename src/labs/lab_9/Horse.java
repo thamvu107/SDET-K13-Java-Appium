@@ -1,6 +1,6 @@
 package src.labs.lab_9;
 
-public class Horse extends Animal{
+public class Horse extends Animal {
     public Horse(AnimalBuilder builder) {
         super(builder);
     }
