@@ -12,7 +12,6 @@ public class Bird extends Animal {
         protected BirdBuilder(String name) {
             super(name);
             this.type = "Bird";
-            this.flyable = true;
         }
 
         @Override
