@@ -1,59 +1,64 @@
 package src.labs.lab_9;
 
-import src.labs.lab_9.Animal.AnimalBuilder;
 import src.labs.lab_9.Tiger.TigerBuilder;
+import src.labs.lab_9.Horse.HorseBuilder;
+import src.labs.lab_9.Dog.DogBuilder;
+import src.labs.lab_9.Bird.BirdBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class Racing {
-    /* Racing animal simple version
-     * Horse: Max 75 km/h
-     * Tiger: Max 100 Km/h
-     * Dog: Max 60 KM/h*
-     * */
 
-    public static final int MAX_TIGER_SPEED = 100;
-    public static final int MAX_HORSE_SPEED = 75;
-    public static final int MAX_DOG_SPEED = 60;
-
-    public static int randomSpeed(int maxSpeed) {
-        return new Random().nextInt(maxSpeed + 1);
-    }
-
-    public static List<Animal> getTigers(int numbers) {
+    public static List<Animal> getTigers(String[] names) {
         List<Animal> list = new ArrayList<>();
-        for (int index = 0; index < numbers; index++) {
-            TigerBuilder builder =  new TigerBuilder("Tiger");
-            Tiger tiger = (Tiger) builder.setFlyable(false).build();
-            list.add(tiger);
+        for (String name : names) {
+            TigerBuilder builder = new TigerBuilder(name);
+            Animal animal = builder.setFlyable(false).build();
+            list.add(animal);
         }
 
         return list;
     }
 
-    public static List<Animal> getHorses(int numbers) {
+    public static List<Animal> getHorses(String[] names) {
         List<Animal> list = new ArrayList<>();
-        for (int index = 0; index < numbers; index++) {
-
+        for (String name : names) {
+            HorseBuilder builder = new HorseBuilder(name);
+            Animal animal = builder.setFlyable(false).build();
+            list.add(animal);
         }
 
         return list;
     }
 
-    public static List<Animal> getDogs(int numbers) {
+    public static List<Animal> getDogs(String[] names) {
         List<Animal> list = new ArrayList<>();
-        for (int index = 0; index < numbers; index++) {
+        for (String name : names) {
+            DogBuilder builder = new DogBuilder(name);
+            Animal animal = builder.setFlyable(false).build();
+            list.add(animal);
+        }
 
+        return list;
+    }
+
+    public static List<Animal> getBirds(String[] names) {
+        List<Animal> list = new ArrayList<>();
+        for (String name : names) {
+            BirdBuilder builder = new BirdBuilder(name);
+            Animal animal = builder.build();
+            list.add(animal);
         }
 
         return list;
     }
 
     public static void printAllRacer(List<Animal> animalList) {
+        System.out.printf("%-4s %-15s %-8s %-7s km/h\n", "Id", "Name", "Type", "Speed");
         for (Animal animal : animalList) {
-            System.out.printf("%-3s %-6s %-3s km/h\n", animal.getId(), animal.getType(), animal.getSpeed());
+            System.out.printf("%-4s %-15s %-8s %-7s km/h\n", animal.getId(), animal.getName(), "(".concat(animal.getType()).concat(")"), animal.getSpeed());
         }
     }
 
@@ -70,8 +75,6 @@ public class Racing {
     }
 
     public static void printAnimalWinner(Animal winner) {
-        System.out.printf("\nWinner is %s - %s , with speed: %d km/h", winner.getId(), winner.getType(),  winner.getSpeed());
-
-
+        System.out.printf("\nAnimal Winner is %s - %s (%s), with speed: %d km/h", winner.getId(), winner.getName(), winner.getType(), winner.getSpeed());
     }
 }

@@ -26,16 +26,35 @@ public class AnimalRacing {
      * + flyable
      * */
     public static void main(String[] args) {
-        List<Animal> tigerList = Racing.getTigers(10);
-      /*  List<Animal> horseList = Racing.getTigers(10);
-        List<Animal> dogList = Racing.getTigers(30);
-        List<Animal> eagleList = Racing.getTigers(30);*/
+        AnimalBuilder builder = new AnimalBuilder("Kaa");
+        Animal snake = builder
+                .setType("Snake")
+                .setFlyable(false)
+                .build();
+
+        //String[] tigerNames = {"Shere Khan", "Rajah"};
+        String[] tigerNames = {"Shere Khan"};
+        List<Animal> tigerList = Racing.getTigers(tigerNames);
+
+        //String[] horseNames = {"Cowboy Bean", "Pink Horse"};
+        String[] horseNames = {"Cowboy Bean"};
+        List<Animal> horseList = Racing.getHorses(horseNames);
+
+        String[] dogNames = {"Toto", "Scooby-Doo", "Goofy", "Odie", "Snoopy", "Droopy", "Hooch", "Goofy", "Bolt", "Copper", "Dug", "Zero", "Astro", "Eddie", "Copper", "Goofy", "Goofy"};
+        List<Animal> dogList = Racing.getDogs(dogNames);
+
+        String[] birdNames = {"Eagle", "Falcon"};
+        List<Animal> birdList = Racing.getBirds(birdNames);
 
         List<Animal> animalRacingList = new ArrayList<>();
+        animalRacingList.add(snake);
+        animalRacingList.addAll(birdList);
         animalRacingList.addAll(tigerList);
+        animalRacingList.addAll(horseList);
+        animalRacingList.addAll(dogList);
 
-        Racing.printAllRacer(tigerList);
-        Animal winner = Racing.findAnimalWinner(tigerList);
+        Racing.printAllRacer(animalRacingList);
+        Animal winner = Racing.findAnimalWinner(animalRacingList);
         Racing.printAnimalWinner(winner);
 
     }
