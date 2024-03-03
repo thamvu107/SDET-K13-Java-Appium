@@ -35,7 +35,7 @@ public class SalaryController {
     public double calculateTotalSalary(List<Employee> employeeList) {
         int totalSalary = 0;
         for (Employee employee : employeeList) {
-            totalSalary += employee.getBaseSalary() + employee.supportSalary;
+            totalSalary += employee.getBaseSalary() + employee.getSupportSalary();
         }
         return totalSalary;
     }
@@ -46,7 +46,7 @@ public class SalaryController {
         for (int index = 0; index < employeeList.size(); index++) {
             Employee emp = employeeList.get(index);
             String isFTE = (emp instanceof Contract) ? "Contract" : "Full time";
-            double salary = emp.getBaseSalary() + emp.supportSalary;
+            double salary = emp.getBaseSalary() + emp.getSupportSalary();
             System.out.printf("%-3s %-7s %-12s %s\n", emp.getEmployeeId(), emp.getName(), isFTE, formatDecimal(salary));
         }
     }
