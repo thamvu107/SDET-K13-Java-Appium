@@ -12,8 +12,7 @@ public class SalaryController {
 
     }
 
-    public static List<Employee> createContractEmployees ( String[] names)
-    {
+    public static List<Employee> createContractEmployees(String[] names) {
         List<Employee> employeeList = new ArrayList<>();
         for (String name : names) {
             Employee employee = new Contract(name);
@@ -23,8 +22,7 @@ public class SalaryController {
         return employeeList;
     }
 
-    public static List<Employee> createFullTimeEmployees( String[] names)
-    {
+    public static List<Employee> createFullTimeEmployees(String[] names) {
         List<Employee> employeeList = new ArrayList<>();
         for (String name : names) {
             Employee employee = new FTE(name);
@@ -33,7 +31,8 @@ public class SalaryController {
 
         return employeeList;
     }
-    public double getTotalSalary(List<Employee> employeeList) {
+
+    public double calculateTotalSalary(List<Employee> employeeList) {
         int totalSalary = 0;
         for (Employee employee : employeeList) {
             totalSalary += employee.getBaseSalary() + employee.getSupportSalary();
@@ -56,6 +55,4 @@ public class SalaryController {
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
         return decimalFormat.format(number);
     }
-
-
 }
