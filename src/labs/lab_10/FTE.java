@@ -11,7 +11,6 @@ public class FTE extends Employee {
         this.supportSalary = SUPPORT_SALARY;
     }
 
-
     @Override
     public double getBaseSalary() {
         return FULL_TIME_SALARY;

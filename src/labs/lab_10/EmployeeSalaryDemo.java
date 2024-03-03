@@ -18,7 +18,7 @@ public class EmployeeSalaryDemo {
         employeeList.addAll(fullTimeEmployeeList);
 
         SalaryController.printAllEmployees(employeeList);
-        double totalSalary = new SalaryController().getTotalSalary(employeeList);
-        System.out.println("\nTotal Employee Salary: " + SalaryController.formatDecimal(totalSalary));
+        double totalSalary = new SalaryController().calculateTotalSalary(employeeList);
+        System.out.println("\nTotal Salary of employees: " + SalaryController.formatDecimal(totalSalary));
     }
 }

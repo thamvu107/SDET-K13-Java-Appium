@@ -12,8 +12,7 @@ public class SalaryController {
 
     }
 
-    public static List<Employee> createContractEmployees ( String[] names)
-    {
+    public static List<Employee> createContractEmployees(String[] names) {
         List<Employee> employeeList = new ArrayList<>();
         for (String name : names) {
             Employee employee = new Contract(name);
@@ -23,8 +22,7 @@ public class SalaryController {
         return employeeList;
     }
 
-    public static List<Employee> createFullTimeEmployees( String[] names)
-    {
+    public static List<Employee> createFullTimeEmployees(String[] names) {
         List<Employee> employeeList = new ArrayList<>();
         for (String name : names) {
             Employee employee = new FTE(name);
@@ -33,10 +31,11 @@ public class SalaryController {
 
         return employeeList;
     }
-    public double getTotalSalary(List<Employee> employeeList) {
+
+    public double calculateTotalSalary(List<Employee> employeeList) {
         int totalSalary = 0;
         for (Employee employee : employeeList) {
-            totalSalary += employee.getBaseSalary() + employee.getSupportSalary();
+            totalSalary += employee.getBaseSalary() + employee.supportSalary;
         }
         return totalSalary;
     }
@@ -47,7 +46,7 @@ public class SalaryController {
         for (int index = 0; index < employeeList.size(); index++) {
             Employee emp = employeeList.get(index);
             String isFTE = (emp instanceof Contract) ? "Contract" : "Full time";
-            double salary = emp.getBaseSalary() + emp.getSupportSalary();
+            double salary = emp.getBaseSalary() + emp.supportSalary;
             System.out.printf("%-3s %-7s %-12s %s\n", emp.getEmployeeId(), emp.getName(), isFTE, formatDecimal(salary));
         }
     }
@@ -56,6 +55,4 @@ public class SalaryController {
         DecimalFormat decimalFormat = new DecimalFormat("#,###");
         return decimalFormat.format(number);
     }
-
-
 }
