@@ -1,22 +1,10 @@
 package src.lessons.lesson_10.P04_LoginPage;
 
-public class LoginPage {
-    public  String username;
-    public  String password;
+public abstract class LoginPage {
 
-    public String getUsername() {
-        return username;
-    }
+    public abstract void inputUsername(String username);
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    public abstract void inputPassword(String password);
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    public abstract void clickOnLoginBtn();
 }
