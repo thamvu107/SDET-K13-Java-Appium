@@ -12,6 +12,10 @@ public class HouseDemo {
         // Create Data model
         House house = new House();
         house.setColor("Pink");
+        house.setTopRoof("Yellow");
+        house.setMainDoors(1);
         house.setWinDows(2);
+
+        System.out.println(house.getColor());
     }
 }
