@@ -71,7 +71,7 @@ public class RacingController {
         System.out.printf("\n%-3s %-4s %-15s %-8s %-10s %-6s km/h\n", "No", "Id", "Name", "Type", "Flyable", "Speed");
         int i = 0;
         for (Animal animal : animalList) {
-            System.out.printf("%-3d %-4s %-15s %-8s %-10s %-6d km/h\n", ++i, animal.getId(), animal.getName(), "(".concat(animal.getType()).concat(")"), animal.getFlyable() ? "Flyable" : "", animal.getSpeed());
+            System.out.printf("%-3d %-4s %-15s %-8s %-10s %-6d km/h\n", ++i, animal.getId(), animal.getName(), "(".concat(animal.getType()).concat(")"), animal.isFlyable() ? "Flyable" : "", animal.getSpeed());
         }
     }
 
