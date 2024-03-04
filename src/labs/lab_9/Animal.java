@@ -42,7 +42,7 @@ public class Animal {
         return name;
     }
 
-    public boolean getFlyable() {
+    public boolean isFlyable() {
         return flyable;
     }
 
