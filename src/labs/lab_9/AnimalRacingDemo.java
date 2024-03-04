@@ -30,21 +30,21 @@ public class AnimalRacingDemo {
                 .build();
 
         String[] unFlyableBirds = {"Penguin", "Ostrich"};
-        List<Animal> unFlyableBirdList = RacingControl.getUnFlyableBirds(unFlyableBirds);
+        List<Animal> unFlyableBirdList = RacingController.getUnFlyableBirds(unFlyableBirds);
 
         String[] birdNames = {"Eagle", "Falcon"};
-        List<Animal> flyableBirdList = RacingControl.getFlyableBirds(birdNames);
+        List<Animal> flyableBirdList = RacingController.getFlyableBirds(birdNames);
 
         //String[] tigerNames = {"Shere Khan", "Rajah"};
         String[] tigerNames = {"Shere Khan"};
-        List<Animal> tigerList = RacingControl.getTigers(tigerNames);
+        List<Animal> tigerList = RacingController.getTigers(tigerNames);
 
         //String[] horseNames = {"Cowboy Bean", "Pink Horse"};
         String[] horseNames = {"Cowboy Bean"};
-        List<Animal> horseList = RacingControl.getHorses(horseNames);
+        List<Animal> horseList = RacingController.getHorses(horseNames);
 
         String[] dogNames = {"Toto", "Scooby-Doo", "Goofy", "Odie", "Snoopy", "Droopy", "Hooch", "Goofy", "Bolt", "Copper", "Dug", "Zero", "Astro", "Eddie", "Copper", "Goofy", "Goofy"};
-        List<Animal> dogList = RacingControl.getDogs(dogNames);
+        List<Animal> dogList = RacingController.getDogs(dogNames);
 
         List<Animal> animalList = new ArrayList<>();
         animalList.add(snake);
@@ -54,15 +54,15 @@ public class AnimalRacingDemo {
         animalList.addAll(horseList);
         animalList.addAll(dogList);
         System.out.println("\nAll animal list");
-        RacingControl.printAnimals(animalList);
+        RacingController.printAnimals(animalList);
 
-        List<Animal> racingAnimalList = RacingControl.getRacingAnimalList(animalList);
+        List<Animal> racingAnimalList = RacingController.getRacingAnimalList(animalList);
         System.out.println("\nRacing animals ( Animal are not able to fly)");
-        RacingControl.printRacingAnimals(racingAnimalList);
+        RacingController.printRacingAnimals(racingAnimalList);
 
-        Animal winner = RacingControl.findAnimalWinner(racingAnimalList);
+        Animal winner = RacingController.findAnimalWinner(racingAnimalList);
 
-        RacingControl.printAnimalWinner(winner);
+        RacingController.printAnimalWinner(winner);
 
     }
 }

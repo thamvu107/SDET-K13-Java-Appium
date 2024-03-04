@@ -8,7 +8,7 @@ import src.labs.lab_9.Bird.BirdBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RacingControl {
+public class RacingController {
 
     public static List<Animal> getTigers(String[] names) {
         List<Animal> list = new ArrayList<>();
@@ -86,7 +86,7 @@ public class RacingControl {
     public static List<Animal> getRacingAnimalList(List<Animal> animalList) {
         List<Animal> racingAnimalList = new ArrayList<>();
         for (Animal animal : animalList) {
-            if (!animal.getFlyable()) {
+            if (!animal.isFlyable()) {
                 racingAnimalList.add(animal);
             }
         }
@@ -95,6 +95,7 @@ public class RacingControl {
     }
 
     public static Animal findAnimalWinner(List<Animal> animalList) {
+        // TODO : handle case animalList: null, empty
         Animal winner = animalList.get(0);
 
         for (Animal animal : animalList) {
