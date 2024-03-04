@@ -13,12 +13,12 @@ public class FTE extends Employee {
 
     @Override
     public double getBaseSalary() {
-        return FULL_TIME_SALARY;
+        return this.baseSalary;
     }
 
     @Override
     public double getSupportSalary() {
-        return SUPPORT_SALARY;
+        return this.supportSalary;
     }
 
 }
