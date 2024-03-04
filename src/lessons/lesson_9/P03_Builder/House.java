@@ -17,6 +17,10 @@ public class House {
         this.mainDoors = builder.mainDoors;
     }
 
+    public static HouseBuilder builder() {
+        return new HouseBuilder();
+    }
+
     // READ ONLY
 
     public int getId() {

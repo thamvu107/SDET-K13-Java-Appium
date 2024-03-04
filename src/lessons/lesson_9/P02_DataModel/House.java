@@ -22,6 +22,22 @@ public class House {
         this.mainDoors = mainDoors;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public String getTopRoof() {
+        return topRoof;
+    }
+
+    public int getWinDowns() {
+        return winDowns;
+    }
+
+    public int getMainDoors() {
+        return mainDoors;
+    }
+
     @Override
     public String toString() {
         return "House{" +
