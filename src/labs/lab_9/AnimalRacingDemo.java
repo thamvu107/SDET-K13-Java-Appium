@@ -23,8 +23,7 @@ public class AnimalRacingDemo {
      * + flyable
      * */
     public static void main(String[] args) {
-        AnimalBuilder snakeBuilder = new AnimalBuilder("Kaa");
-        Animal snake = snakeBuilder
+        Animal snake = Animal.builder("Kaa")
                 .setType("Snake")
                 .setFlyable(false)
                 .build();

@@ -29,6 +29,10 @@ public class Animal {
         this.speed = builder.speed;
     }
 
+    public static AnimalBuilder builder (String name){
+        return new AnimalBuilder(name);
+    }
+
     // READ ONLY
     public String getId() {
         return id;

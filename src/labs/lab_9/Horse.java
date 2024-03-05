@@ -5,6 +5,11 @@ public class Horse extends Animal {
         super(builder);
     }
 
+    public static HorseBuilder builder(String name) {
+        return  new HorseBuilder(name);
+    }
+
+
     protected static class HorseBuilder extends AnimalBuilder {
         public static final int MAX_HORSE_SPEED = 75;
 

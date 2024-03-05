@@ -7,6 +7,10 @@ public class Tiger extends Animal {
         super(builder);
     }
 
+    public static TigerBuilder builder (String name){
+        return new TigerBuilder(name);
+    }
+
     public static class TigerBuilder extends AnimalBuilder {
         public TigerBuilder(String name) {
             super(name);
