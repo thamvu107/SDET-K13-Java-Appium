@@ -7,6 +7,9 @@ public class Dog extends Animal {
         super(builder);
     }
 
+    public static DogBuilder builder (String name){
+        return new DogBuilder(name);
+    }
     protected static class DogBuilder extends AnimalBuilder {
 
         public DogBuilder(String name) {

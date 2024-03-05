@@ -1,8 +1,5 @@
 package src.labs.lab_9;
 
-import src.labs.lab_9.Tiger.TigerBuilder;
-import src.labs.lab_9.Horse.HorseBuilder;
-import src.labs.lab_9.Dog.DogBuilder;
 import src.labs.lab_9.Bird.BirdBuilder;
 
 import java.util.ArrayList;
@@ -13,8 +10,9 @@ public class RacingController {
     public static List<Animal> getTigers(String[] names) {
         List<Animal> list = new ArrayList<>();
         for (String name : names) {
-            TigerBuilder builder = new TigerBuilder(name);
-            Animal animal = builder.setFlyable(false).build();
+            Animal animal = Tiger.builder(name)
+                    .setFlyable(false)
+                    .build();
             list.add(animal);
         }
 
@@ -24,8 +22,9 @@ public class RacingController {
     public static List<Animal> getHorses(String[] names) {
         List<Animal> list = new ArrayList<>();
         for (String name : names) {
-            HorseBuilder builder = new HorseBuilder(name);
-            Animal animal = builder.setFlyable(false).build();
+            Animal animal = Horse.builder(name)
+                    .setFlyable(false)
+                    .build();
             list.add(animal);
         }
 
@@ -35,8 +34,9 @@ public class RacingController {
     public static List<Animal> getDogs(String[] names) {
         List<Animal> list = new ArrayList<>();
         for (String name : names) {
-            DogBuilder builder = new DogBuilder(name);
-            Animal animal = builder.setFlyable(false).build();
+            Animal animal = Dog.builder(name)
+                    .setFlyable(false)
+                    .build();
             list.add(animal);
         }
 
@@ -46,8 +46,7 @@ public class RacingController {
     public static List<Animal> getFlyableBirds(String[] names) {
         List<Animal> list = new ArrayList<>();
         for (String name : names) {
-            BirdBuilder builder = new BirdBuilder(name);
-            Animal animal = builder
+            Animal animal = Bird.builder(name)
                     .setFlyable(true)
                     .build();
             list.add(animal);
@@ -58,8 +57,7 @@ public class RacingController {
     public static List<Animal> getUnFlyableBirds(String[] names) {
         List<Animal> list = new ArrayList<>();
         for (String name : names) {
-            BirdBuilder builder = new BirdBuilder(name);
-            Animal animal = builder
+            Animal animal = Bird.builder(name)
                     .setFlyable(false)
                     .build();
             list.add(animal);

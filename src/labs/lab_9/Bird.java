@@ -8,6 +8,10 @@ public class Bird extends Animal {
         super(builder);
     }
 
+    public static BirdBuilder builder(String name){
+        return new BirdBuilder(name);
+    }
+
     protected static class BirdBuilder extends AnimalBuilder {
         protected BirdBuilder(String name) {
             super(name);
