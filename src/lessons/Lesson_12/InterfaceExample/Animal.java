@@ -1,4 +1,4 @@
-package src.lessons.Lesson_12;
+package src.lessons.Lesson_12.InterfaceExample;
 
 public class Animal implements IRaceAble, IRunAble{
 

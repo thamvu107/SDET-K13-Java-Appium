@@ -1,4 +1,4 @@
-package src.lessons.Lesson_12;
+package src.lessons.Lesson_12.InterfaceExample;
 
 import java.util.Arrays;
 
@@ -8,6 +8,6 @@ public class RacingDemo {
         Human ti = new Human();
 
         IRaceAble winner = RaceController.getWinner(Arrays.asList(bong, ti));
-        System.out.println(winner.toString());
+        System.out.println(winner);
     }
 }

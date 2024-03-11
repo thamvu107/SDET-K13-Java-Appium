@@ -1,6 +1,6 @@
-package src.lessons.Lesson_12;
+package src.lessons.Lesson_12.InterfaceExample;
 
-public class Human implements IRaceAble{
+public class Human implements IRaceAble, IRunAble{
     private int speed;
     @Override
     public int speed() {
@@ -14,5 +14,10 @@ public class Human implements IRaceAble{
         return "Human{" +
                 "speed=" + speed +
                 '}';
+    }
+
+    @Override
+    public int stepLength() {
+        return 10;
     }
 }
