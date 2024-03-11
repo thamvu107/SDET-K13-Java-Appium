@@ -1,19 +1,19 @@
 package src.explore.OOP.Static;
 
 public class StaticDemo {
-    /* Rule:
-     * + Static methods can be called directly using the class names.
-     *        Memory for static methods is allocated in the static segment.
-     *
-     * There are two main restrictions for the static method:
-     * + The static method can not use non static data member or call non-static method directly.
+    /* :
+     * + Static methods is called directly using the class names.
+     * + Static methods can’t be overridden.
+     * + Abstract methods can’t be static.
      * + this and super cannot be used in static context.
+     * + static methods can’t access instance variables and instance methods directly. They need some object reference to do so.
+     *
      * */
-    public  int noneStatic = 30;
+    public int noneStatic = 30;
 
     public static void main(String[] args) {
 
-        // Static method
+//     Static methods is called directly using the class names.
         Car.milesToKms();
         Human.avgHeartBeat();
 
@@ -24,7 +24,7 @@ public class StaticDemo {
         Car yourCar = new Car();
         yourCar.calcMileage();
 
-        Human human =  new Human();
+        Human human = new Human();
         human.bodyTemp();
     }
 
