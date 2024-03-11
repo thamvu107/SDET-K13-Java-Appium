@@ -23,7 +23,10 @@ public class DriverManager {
          return  appiumDriver;
      }
 
-     /**
-      * Polymorphism: An object is able to transition between different forms in same family models
+     /*
+      * Inheritance:
+      *     +  Utility class: Group some similar functions that I want other classes to REUSE
+      *     +  IS-A relationship: Model Design | Controller (IS-A something should have something
+      *     +  Polymorphism: An object is able to transition between different forms in same family models
       * */
 }
