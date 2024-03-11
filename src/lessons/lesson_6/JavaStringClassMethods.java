@@ -2,6 +2,11 @@ package src.lessons.lesson_6;
 
 public class JavaStringClassMethods {
     public static void main(String[] args) {
+
+        char[] name = {'J', 'A', 'V', 'A'};
+        String s = new String(name);
+        System.out.println(s);
+
         String s1 = "cat";
         String s2 = "cat";
         String s3 = new String("cat");
