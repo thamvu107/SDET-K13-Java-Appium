@@ -54,7 +54,6 @@ public class House {
                 '}';
     }
 
-    // Inner class - nested class that are non-static
     public static class HouseBuilder {
         // Properties
         private int id = ++increaseId;
