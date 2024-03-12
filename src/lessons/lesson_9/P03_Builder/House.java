@@ -54,7 +54,6 @@ public class House {
                 '}';
     }
 
-    // Inner class
     public static class HouseBuilder {
         // Properties
         private int id = ++increaseId;

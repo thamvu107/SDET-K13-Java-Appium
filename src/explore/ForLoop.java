@@ -9,6 +9,19 @@ public class ForLoop {
             count++;
             print('W');
         }
+
+        printNTimes("JavaDoc", 7);
+    }
+
+    /**
+     * Display message, numTimes times, one messages per line.
+     * @param message the message to be displayed
+     * @param numTime number of times to display message
+     */
+    private static void printNTimes(String message, int numTime) {
+        for (int index = 0; index < numTime ; index++) {
+            System.out.println(message);
+        }
     }
 
     public static boolean print(char character) {
