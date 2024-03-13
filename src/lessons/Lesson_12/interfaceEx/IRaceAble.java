@@ -1,4 +1,4 @@
-package src.lessons.Lesson_12.InterfaceExample;
+package src.lessons.Lesson_12.interfaceEx;
 
 /**
  * HAS-A relationship --> Irrelevant classes

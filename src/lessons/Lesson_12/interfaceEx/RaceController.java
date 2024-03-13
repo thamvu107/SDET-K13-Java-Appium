@@ -1,4 +1,4 @@
-package src.lessons.Lesson_12.InterfaceExample;
+package src.lessons.Lesson_12.interfaceEx;
 
 import java.util.List;
 

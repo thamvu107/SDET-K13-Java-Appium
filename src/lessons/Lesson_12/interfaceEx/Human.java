@@ -1,4 +1,4 @@
-package src.lessons.Lesson_12.InterfaceExample;
+package src.lessons.Lesson_12.interfaceEx;
 
 public class Human implements IRaceAble, IRunAble{
     private int speed;
