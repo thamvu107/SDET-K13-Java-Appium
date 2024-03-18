@@ -6,17 +6,6 @@ import java.util.List;
 
 public class EmployeeSalaryDemo {
     public static void main(String[] args) {
-        /*Employee emp = new Employee() {
-            @Override
-            public int getSalary() {
-                return 40_000;
-            }
-
-            @Override
-            public int getSupportSalary() {
-                return 0;
-            }
-        };*/
 
         Employee ti = new Contract("Ti");
         Employee teo = new Contract("Teo");
