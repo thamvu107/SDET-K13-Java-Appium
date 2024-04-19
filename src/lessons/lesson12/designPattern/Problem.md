@@ -1,10 +1,10 @@
-Problem:
+# Problem:
 
-Quack: Quack, Speak, Mute
-Fly: FlyWithWing, FlyNoway
-Duck: MallardDuck, BabyDuck, Decoy
+- Quack: Quack, Speak, Mute
+- Fly: FlyWithWing, FlyNoway
+- Duck: MallardDuck, BabyDuck, Decoy
 
-Controller/method: fly, quack
+- Controller/method: fly, quack
 
 
 abstract class Duck {
@@ -16,7 +16,7 @@ fly(Duck duck){
     duck.fly();
 }
 
-// Strategy pattern: 
+# Strategy pattern: 
 1. Family member large: 21 templates ( Type of page - HTML page), different components
 2. Many variant behaviors: each component has different behaviors
 
